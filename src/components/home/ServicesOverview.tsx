@@ -4,34 +4,41 @@ import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Calculator, FileText, Building2, BookOpen, SearchCheck, Briefcase } from "lucide-react"
+import Link from "next/link"
 
 const services = [
   {
+    id: "income-tax",
     title: "Income Tax Filing",
     description: "Expert assistance with individual and corporate tax returns, ensuring compliance and maximum savings.",
     icon: FileText,
   },
   {
+    id: "gst",
     title: "GST Registration & Filing",
     description: "End-to-end GST solutions including registration, monthly returns, and audit compliance.",
     icon: Calculator,
   },
   {
+    id: "company-registration",
     title: "Company Registration",
     description: "Seamless incorporation services for Private Limited, LLP, and other business structures.",
     icon: Building2,
   },
   {
+    id: "accounting",
     title: "Accounting & Bookkeeping",
     description: "Accurate and timely financial record keeping to help you make informed business decisions.",
     icon: BookOpen,
   },
   {
+    id: "audit",
     title: "Audit & Assurance",
     description: "Statutory and internal audits to ensure transparency and regulatory compliance.",
     icon: SearchCheck,
   },
   {
+    id: "startup",
     title: "Business Compliance",
     description: "Comprehensive secretarial and ROC compliance services for your business.",
     icon: Briefcase,
@@ -58,19 +65,21 @@ export function ServicesOverview() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group border-gray-medium">
-                  <CardHeader>
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-navy/5 text-navy group-hover:bg-gold/10 group-hover:text-gold transition-colors">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle className="text-xl text-navy">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <Link href={`/services#${service.id}`} className="block h-full">
+                  <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group border-gray-medium cursor-pointer">
+                    <CardHeader>
+                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-navy/5 text-navy group-hover:bg-gold/10 group-hover:text-gold transition-colors">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <CardTitle className="text-xl text-navy group-hover:text-gold transition-colors">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
               </motion.div>
             )
           })}
