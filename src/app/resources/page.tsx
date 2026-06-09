@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Search, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 const categories = ["All", "Taxation", "GST", "Compliance", "Startups", "Accounting"]
 
@@ -16,6 +17,7 @@ const articles = [
     category: "Taxation",
     date: "Mar 15, 2024",
     readTime: "5 min read",
+    image: "/resources/tax.png",
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const articles = [
     category: "GST",
     date: "Mar 10, 2024",
     readTime: "8 min read",
+    image: "/resources/gst.png",
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const articles = [
     category: "Compliance",
     date: "Mar 05, 2024",
     readTime: "10 min read",
+    image: "/resources/company.png",
   },
   {
     id: 4,
@@ -40,6 +44,7 @@ const articles = [
     category: "Startups",
     date: "Feb 28, 2024",
     readTime: "7 min read",
+    image: "/resources/startup.png",
   },
   {
     id: 5,
@@ -48,6 +53,7 @@ const articles = [
     category: "Accounting",
     date: "Feb 20, 2024",
     readTime: "6 min read",
+    image: "/resources/accounting.png",
   },
 ]
 
@@ -114,11 +120,14 @@ export default function ResourcesPage() {
               >
                 <Card className="h-full flex flex-col hover:shadow-lg transition-shadow border-none cursor-pointer group">
                   <div className="h-48 bg-gray-200 rounded-t-xl relative overflow-hidden">
-                    <div className="absolute inset-0 bg-navy/5 group-hover:bg-transparent transition-colors" />
-                    {/* Placeholder for Article Image */}
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                      Image Placeholder
-                    </div>
+                    <Image 
+                      src={article.image} 
+                      alt={article.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-colors z-10" />
                   </div>
                   <CardContent className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center justify-between text-sm text-gray-500 mb-3">

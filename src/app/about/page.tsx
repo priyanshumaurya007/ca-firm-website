@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Target, Lightbulb, ShieldCheck, Users } from "lucide-react"
+import Image from "next/image"
 
 const values = [
   {
@@ -67,15 +68,13 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="h-full bg-navy text-white border-none">
-              <CardContent className="p-8">
-                <Target className="h-12 w-12 text-gold mb-6" />
-                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-                <p className="text-gray-300">
-                  To empower individuals and businesses with accurate, timely, and strategic financial insights, ensuring absolute compliance while maximizing growth opportunities.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="h-full rounded-xl bg-navy text-white shadow-sm p-8">
+              <Target className="h-12 w-12 text-gold mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
+              <p className="text-gray-300">
+                To empower individuals and businesses with accurate, timely, and strategic financial insights, ensuring absolute compliance while maximizing growth opportunities.
+              </p>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -83,15 +82,13 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="h-full bg-gold text-white border-none">
-              <CardContent className="p-8">
-                <Lightbulb className="h-12 w-12 text-white mb-6" />
-                <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-                <p className="text-white/90">
-                  To be the most trusted and forward-thinking financial advisory firm in India, known for our integrity, technological edge, and exceptional client service.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="h-full rounded-xl bg-gold text-white shadow-sm p-8">
+              <Lightbulb className="h-12 w-12 text-white mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
+              <p className="text-white/90">
+                To be the most trusted and forward-thinking financial advisory firm in India, known for our integrity, technological edge, and exceptional client service.
+              </p>
+            </div>
           </motion.div>
         </div>
 
@@ -131,11 +128,14 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="mb-8 lg:mb-0"
             >
-              <div className="aspect-[4/5] rounded-2xl bg-gray-300 relative overflow-hidden">
-                {/* Placeholder for Founder Image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-500 bg-gray-200">
-                  <span className="text-lg">Founder Image Placeholder</span>
-                </div>
+              <div className="aspect-[4/5] rounded-2xl bg-gray-300 relative overflow-hidden shadow-xl">
+                <Image 
+                  src="/founder.png" 
+                  alt="CA Anand Agarwal, Founder & Managing Partner" 
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </motion.div>
             <motion.div
